@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const Academic = () => {
-  const [show, setshow] = useState(false);
+  // const [show, setshow] = useState(false);
 
   // const toggleShow = () => setshow(!show);
   return (

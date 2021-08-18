@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const Academic = () => {
   const [show, setshow] = useState(false);
 
-  const toggleShow = () => setshow(!show);
+  // const toggleShow = () => setshow(!show);
   return (
     <div className="row p-5 bg-white">
       <div className="col-12">

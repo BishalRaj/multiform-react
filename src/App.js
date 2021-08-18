@@ -79,7 +79,7 @@ function App() {
         <div className="px-5 py-3 shadow rounded-3">
           {/*  */}
 
-          {step == 1 && (
+          {step === 1 && (
             <Personal
               handleChange={handleChange}
               data={{
@@ -94,10 +94,10 @@ function App() {
               }}
             />
           )}
-          {step == 2 && <Academic />}
-          {step == 3 && <Experience />}
-          {step == 4 && <Skill />}
-          {step == 5 && <Social />}
+          {step === 2 && <Academic />}
+          {step === 3 && <Experience />}
+          {step === 4 && <Skill />}
+          {step === 5 && <Social />}
 
           {/*  */}
           <div className="row border-top px-5 py-3 mt-3">

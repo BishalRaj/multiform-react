@@ -34,7 +34,28 @@ const Skill = () => {
         </div>
       </div>
       <div className="col-4 d-flex justify-content-center align-items-center">
-        <button className="btn btn-outline-dark">Remove</button>
+        <button className="btn btn-success">Add</button>
+      </div>
+
+      <div className="col-12 mt-5">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Expertise</th>
+              <th scope="col">Percent</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>TU</td>
+              <td>MBA</td>
+              <td>
+                <button className="btn btn-danger">-</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   );

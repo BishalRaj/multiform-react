@@ -6,6 +6,7 @@ import Academic from "./container/forms/academic";
 import Experience from "./container/forms/experience";
 import Skill from "./container/forms/skill";
 import Social from "./container/forms/social";
+import Progressbar from "./container/progressbar";
 
 function App() {
   const [step, setstep] = useState(1);
@@ -74,7 +75,9 @@ function App() {
 
   return (
     <>
-      <section>{/* <Progressbar /> */}</section>
+      <section className="container">
+        <Progressbar step={step} />
+      </section>
       <section className="container">
         <div className="px-5 py-3 shadow rounded-3">
           {/*  */}

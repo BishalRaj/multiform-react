@@ -21,6 +21,15 @@ const Skill = () => {
 
         <div className="col-4">
           <div className="form-group">
+            <input
+              type="text"
+              className="form-control my-1"
+              id="uid"
+              name="uid"
+              value={uuidv4()}
+              placeholder=""
+              hidden
+            />
             <label className="my-1 py-3 w-100" for="expertise">
               Expertise
             </label>

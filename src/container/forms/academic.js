@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-const Academic = () => {
+const Academic = ({ handleChange, addField }) => {
   const [moreOption, setmoreOption] = useState([]);
   const [show, setshow] = useState(false);
   const toggleShow = () => setshow(!show);
-  const optionClickHandler = () => {
+  const optionClickHandler = (e) => {
     setmoreOption([...moreOption, { id: uuidv4() }]);
+    addField(e);
   };
   const handleRemoveOption = (id) => {
     setmoreOption(moreOption.filter((option) => option.id !== id));
@@ -27,7 +28,9 @@ const Academic = () => {
               <input
                 type="text"
                 className="form-control my-1"
-                id="institution"
+                id="0"
+                name="institution"
+                onChange={handleChange}
                 placeholder=""
               />
             </div>
@@ -40,7 +43,9 @@ const Academic = () => {
               <input
                 type="text"
                 className="form-control my-1"
-                id="qualification"
+                id="0"
+                name="qualification"
+                onChange={handleChange}
                 placeholder=""
               />
             </div>
@@ -53,7 +58,9 @@ const Academic = () => {
               <input
                 type="date"
                 className="form-control my-1"
-                id="start"
+                id="0"
+                name="start"
+                onChange={handleChange}
                 placeholder=""
               />
             </div>
@@ -66,7 +73,9 @@ const Academic = () => {
               <input
                 type="date"
                 className="form-control"
-                id="end"
+                id="0"
+                name="end"
+                onChange={handleChange}
                 placeholder=""
               />
             </div>
@@ -79,7 +88,9 @@ const Academic = () => {
               <input
                 type="number"
                 className="form-control my-1"
-                id="gpa"
+                id="0"
+                name="gpa"
+                onChange={handleChange}
                 placeholder=""
               />
             </div>
@@ -93,6 +104,7 @@ const Academic = () => {
               <div className="col-12 mb-5 mt-5">
                 <button
                   className="btn btn-primary"
+                  id={option.id}
                   onClick={optionClickHandler}
                 >
                   Add new Qualification
@@ -112,7 +124,8 @@ const Academic = () => {
                   <input
                     type="text"
                     className="form-control my-1"
-                    id="institution"
+                    id={option.id}
+                    onChange={handleChange}
                     placeholder=""
                   />
                 </div>
@@ -125,7 +138,8 @@ const Academic = () => {
                   <input
                     type="text"
                     className="form-control my-1"
-                    id="qualification"
+                    id={option.id}
+                    onChange={handleChange}
                     placeholder=""
                   />
                 </div>
@@ -138,7 +152,8 @@ const Academic = () => {
                   <input
                     type="date"
                     className="form-control my-1"
-                    id="start"
+                    id={option.id}
+                    onChange={handleChange}
                     placeholder=""
                   />
                 </div>
@@ -151,7 +166,8 @@ const Academic = () => {
                   <input
                     type="date"
                     className="form-control"
-                    id="end"
+                    id={option.id}
+                    onChange={handleChange}
                     placeholder=""
                   />
                 </div>
@@ -164,7 +180,8 @@ const Academic = () => {
                   <input
                     type="number"
                     className="form-control my-1"
-                    id="gpa"
+                    id={option.id}
+                    onChange={handleChange}
                     placeholder=""
                   />
                 </div>

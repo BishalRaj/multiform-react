@@ -10,7 +10,7 @@ import Progressbar from "./container/progressbar";
 
 function App() {
   const [step, setstep] = useState(1);
-  const [details, setdetails] = useState({
+  const [personal, setpersonal] = useState({
     name: "",
     email: "",
     password: "",
@@ -20,6 +20,23 @@ function App() {
     role: "",
     experience: "",
   });
+  const [academic, setacademic] = useState([
+    {
+      0: { institution: "", qualification: "", start: "", end: "", gpa: "" },
+    },
+  ]);
+  const addField = (event) => {
+    setacademic({
+      ...academic,
+      [event.target.id]: {
+        institution: "",
+        qualification: "",
+        start: "",
+        end: "",
+        gpa: "",
+      },
+    });
+  };
 
   const decreaseStep = () => {
     if (step > 1 && step <= 6) {
@@ -38,7 +55,7 @@ function App() {
       phone,
       role,
       experience,
-    } = details;
+    } = personal;
 
     switch (step) {
       case 1:
@@ -56,6 +73,9 @@ function App() {
         }
         break;
       case 2:
+        if (academic && academic != null && academic != undefined) {
+          isValid = true;
+        }
         break;
       case 31:
         break;
@@ -70,9 +90,31 @@ function App() {
     } else return;
   };
   const handleChange = (event) => {
-    setdetails({ ...details, [event.target.name]: event.target.value });
-  };
+    switch (step) {
+      case 1:
+        setpersonal({ ...personal, [event.target.name]: event.target.value });
+        break;
+      case 2:
+        setacademic({
+          ...academic,
+          [event.target.id]: {
+            ...academic[event.target.id],
+            [event.target.name]: event.target.value,
+          },
+        });
 
+        break;
+      case 3:
+        break;
+      case 4:
+        break;
+      case 5:
+        break;
+    }
+  };
+  console.log("====================================");
+  console.log(academic);
+  console.log("====================================");
   return (
     <>
       <section className="container">
@@ -83,21 +125,11 @@ function App() {
           {/*  */}
 
           {step === 1 && (
-            <Personal
-              handleChange={handleChange}
-              data={{
-                name: details.name,
-                email: details.email,
-                password: details.password,
-                confirmPassword: details.confirmPassword,
-                address: details.address,
-                role: details.role,
-                phone: details.phone,
-                experience: details.experience,
-              }}
-            />
+            <Personal handleChange={handleChange} data={personal} />
           )}
-          {step === 2 && <Academic />}
+          {step === 2 && (
+            <Academic handleChange={handleChange} addField={addField} />
+          )}
           {step === 3 && <Experience />}
           {step === 4 && <Skill />}
           {step === 5 && <Social />}

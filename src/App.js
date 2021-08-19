@@ -20,23 +20,9 @@ function App() {
     role: "",
     experience: "",
   });
-  const [academic, setacademic] = useState([
-    {
-      0: { institution: "", qualification: "", start: "", end: "", gpa: "" },
-    },
-  ]);
-  const addField = (event) => {
-    setacademic({
-      ...academic,
-      [event.target.id]: {
-        institution: "",
-        qualification: "",
-        start: "",
-        end: "",
-        gpa: "",
-      },
-    });
-  };
+  const [academic, setacademic] = useState([]);
+  const [experience, setexperience] = useState([]);
+  const [skills, setskills] = useState([]);
 
   const decreaseStep = () => {
     if (step > 1 && step <= 6) {
@@ -76,6 +62,7 @@ function App() {
         if (academic && academic != null && academic != undefined) {
           isValid = true;
         }
+
         break;
       case 31:
         break;
@@ -89,32 +76,33 @@ function App() {
       setstep(step + 1);
     } else return;
   };
+
   const handleChange = (event) => {
     switch (step) {
       case 1:
         setpersonal({ ...personal, [event.target.name]: event.target.value });
         break;
-      case 2:
-        setacademic({
-          ...academic,
-          [event.target.id]: {
-            ...academic[event.target.id],
-            [event.target.name]: event.target.value,
-          },
-        });
+      case 5:
+        break;
+      default:
+        return;
+    }
+  };
 
+  const fetchData = (data) => {
+    switch (step) {
+      case 2:
+        setacademic(data[0]);
         break;
       case 3:
+        setexperience(data[0]);
         break;
       case 4:
-        break;
-      case 5:
+        setskills(data[0]);
         break;
     }
   };
-  console.log("====================================");
-  console.log(academic);
-  console.log("====================================");
+
   return (
     <>
       <section className="container">
@@ -128,10 +116,10 @@ function App() {
             <Personal handleChange={handleChange} data={personal} />
           )}
           {step === 2 && (
-            <Academic handleChange={handleChange} addField={addField} />
+            <Academic handleChange={handleChange} fetchData={fetchData} />
           )}
-          {step === 3 && <Experience />}
-          {step === 4 && <Skill />}
+          {step === 3 && <Experience fetchData={fetchData} />}
+          {step === 4 && <Skill fetchData={fetchData} />}
           {step === 5 && <Social />}
 
           {/*  */}

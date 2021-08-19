@@ -1,16 +1,45 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-const Academic = ({ handleChange, addField }) => {
+const Academic = ({ fetchData }) => {
   const [moreOption, setmoreOption] = useState([]);
-  const [show, setshow] = useState(false);
-  const toggleShow = () => setshow(!show);
+  const [academicData, setacademicData] = useState([]);
   const optionClickHandler = (e) => {
     setmoreOption([...moreOption, { id: uuidv4() }]);
-    addField(e);
+    setacademicData({
+      ...academicData,
+      [moreOption.length + 1]: {
+        institution: "",
+        qualification: "",
+        start: "",
+        end: "",
+        gpa: "",
+      },
+    });
   };
   const handleRemoveOption = (id) => {
     setmoreOption(moreOption.filter((option) => option.id !== id));
   };
+
+  const handleChange = (event) => {
+    setacademicData({
+      ...academicData,
+      [moreOption.length]: {
+        ...academicData[moreOption.length],
+        [event.target.name]: event.target.value,
+      },
+    });
+    let data = [
+      {
+        ...academicData,
+        [moreOption.length]: {
+          ...academicData[moreOption.length],
+          [event.target.name]: event.target.value,
+        },
+      },
+    ];
+    fetchData(data);
+  };
+
   return (
     <>
       <div className="row p-5 bg-white">
@@ -123,6 +152,7 @@ const Academic = ({ handleChange, addField }) => {
                   </label>
                   <input
                     type="text"
+                    name="institution"
                     className="form-control my-1"
                     id={option.id}
                     onChange={handleChange}
@@ -139,6 +169,7 @@ const Academic = ({ handleChange, addField }) => {
                     type="text"
                     className="form-control my-1"
                     id={option.id}
+                    name="qualification"
                     onChange={handleChange}
                     placeholder=""
                   />
@@ -153,6 +184,7 @@ const Academic = ({ handleChange, addField }) => {
                     type="date"
                     className="form-control my-1"
                     id={option.id}
+                    name="start"
                     onChange={handleChange}
                     placeholder=""
                   />
@@ -168,6 +200,7 @@ const Academic = ({ handleChange, addField }) => {
                     className="form-control"
                     id={option.id}
                     onChange={handleChange}
+                    name="end"
                     placeholder=""
                   />
                 </div>
@@ -181,6 +214,7 @@ const Academic = ({ handleChange, addField }) => {
                     type="number"
                     className="form-control my-1"
                     id={option.id}
+                    name="gpa"
                     onChange={handleChange}
                     placeholder=""
                   />

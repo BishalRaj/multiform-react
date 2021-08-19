@@ -1,13 +1,34 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-const Skill = () => {
+const Skill = ({ fetchData }) => {
   const [moreOption, setmoreOption] = useState([]);
+  const [skillData, setskillData] = useState([]);
   const optionClickHandler = () => {
     setmoreOption([...moreOption, { id: uuidv4() }]);
   };
   const handleRemoveOption = (id) => {
     setmoreOption(moreOption.filter((option) => option.id !== id));
+  };
+
+  const handleChange = (event) => {
+    setskillData({
+      ...skillData,
+      [moreOption.length]: {
+        ...skillData[moreOption.length],
+        [event.target.name]: event.target.value,
+      },
+    });
+    let data = [
+      {
+        ...skillData,
+        [moreOption.length]: {
+          ...skillData[moreOption.length],
+          [event.target.name]: event.target.value,
+        },
+      },
+    ];
+    fetchData(data);
   };
 
   return (
@@ -21,15 +42,6 @@ const Skill = () => {
 
         <div className="col-4">
           <div className="form-group">
-            <input
-              type="text"
-              className="form-control my-1"
-              id="uid"
-              name="uid"
-              value={uuidv4()}
-              placeholder=""
-              hidden
-            />
             <label className="my-1 py-3 w-100" for="expertise">
               Expertise
             </label>
@@ -37,6 +49,8 @@ const Skill = () => {
               type="text"
               className="form-control my-1"
               id="expertise"
+              name="expertise"
+              onChange={handleChange}
               placeholder=""
             />
           </div>
@@ -50,6 +64,8 @@ const Skill = () => {
               type="text"
               className="form-control"
               id="Percent"
+              name="Percent"
+              onChange={handleChange}
               placeholder=""
             />
           </div>
@@ -80,6 +96,8 @@ const Skill = () => {
                   type="text"
                   className="form-control my-1"
                   id="expertise"
+                  name="expertise"
+                  onChange={handleChange}
                   placeholder=""
                 />
               </div>
@@ -93,6 +111,8 @@ const Skill = () => {
                   type="text"
                   className="form-control"
                   id="Percent"
+                  name="Percent"
+                  onChange={handleChange}
                   placeholder=""
                 />
               </div>

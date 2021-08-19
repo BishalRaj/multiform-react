@@ -115,9 +115,7 @@ function App() {
           {step === 1 && (
             <Personal handleChange={handleChange} data={personal} />
           )}
-          {step === 2 && (
-            <Academic handleChange={handleChange} fetchData={fetchData} />
-          )}
+          {step === 2 && <Academic fetchData={fetchData} />}
           {step === 3 && <Experience fetchData={fetchData} />}
           {step === 4 && <Skill fetchData={fetchData} />}
           {step === 5 && <Social />}

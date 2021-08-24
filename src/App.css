@@ -28,6 +28,10 @@
   color: #61dafb;
 }
 
+.form-div {
+  box-shadow: 5px 10px #888888 !important;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -13,9 +13,9 @@ const Progressbar = ({ step }) => {
     <div className="row py-5 d-flex align-items-center justify-content-center">
       {title.map((data, index) => {
         return (
-          <div className="col-2">
+          <div className="col-2 progressbar">
             <div
-              className={`progressbar-box mx-auto d-flex align-items-center justify-content-center ${
+              className={`progressbar-box  mx-auto d-flex align-items-center justify-content-center ${
                 step >= index + 1 && "progressbar-active"
               } `}
             >
@@ -28,6 +28,13 @@ const Progressbar = ({ step }) => {
             >
               {data.title}
             </p>
+            {index < 4 && (
+              <div
+                class={`progressbar-line ${
+                  step >= index + 1 && "progressbar-line-active"
+                }`}
+              ></div>
+            )}
           </div>
         );
       })}

@@ -110,8 +110,8 @@ function App() {
       <section className="container">
         <Progressbar step={step} />
       </section>
-      <section className="container">
-        <div className="px-5 py-3 shadow rounded-3">
+      <section className="container mb-5">
+        <div className="px-5 py-3 shadow-lg rounded-3">
           {/*  */}
 
           {step === 1 && (

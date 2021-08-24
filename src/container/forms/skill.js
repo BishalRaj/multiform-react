@@ -14,20 +14,21 @@ const Skill = ({ fetchData }) => {
   const handleChange = (event) => {
     setskillData({
       ...skillData,
-      [moreOption.length]: {
-        ...skillData[moreOption.length],
+      [event.target.id]: {
+        ...skillData[event.target.id],
         [event.target.name]: event.target.value,
       },
     });
     let data = [
       {
         ...skillData,
-        [moreOption.length]: {
-          ...skillData[moreOption.length],
+        [event.target.id]: {
+          ...skillData[event.target.id],
           [event.target.name]: event.target.value,
         },
       },
     ];
+
     fetchData(data);
   };
 
@@ -48,7 +49,7 @@ const Skill = ({ fetchData }) => {
             <input
               type="text"
               className="form-control my-1"
-              id="expertise"
+              id="0"
               name="expertise"
               onChange={handleChange}
               placeholder=""
@@ -63,7 +64,7 @@ const Skill = ({ fetchData }) => {
             <input
               type="text"
               className="form-control"
-              id="Percent"
+              id="0"
               name="Percent"
               onChange={handleChange}
               placeholder=""
@@ -72,7 +73,7 @@ const Skill = ({ fetchData }) => {
         </div>
       </div>
 
-      {moreOption.map((option) => {
+      {moreOption.map((option, index) => {
         return (
           <div className="row p-5 bg-white rounded">
             <div className="col-12">
@@ -95,7 +96,7 @@ const Skill = ({ fetchData }) => {
                 <input
                   type="text"
                   className="form-control my-1"
-                  id="expertise"
+                  id={index + 1}
                   name="expertise"
                   onChange={handleChange}
                   placeholder=""
@@ -110,7 +111,7 @@ const Skill = ({ fetchData }) => {
                 <input
                   type="text"
                   className="form-control"
-                  id="Percent"
+                  id={index + 1}
                   name="Percent"
                   onChange={handleChange}
                   placeholder=""

@@ -102,7 +102,9 @@ function App() {
         break;
     }
   };
-
+  console.log("====================================");
+  console.log(academic);
+  console.log("====================================");
   return (
     <>
       <section className="container">

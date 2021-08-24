@@ -3,18 +3,8 @@ import { v4 as uuidv4 } from "uuid";
 const Academic = ({ fetchData }) => {
   const [moreOption, setmoreOption] = useState([]);
   const [academicData, setacademicData] = useState([]);
-  const optionClickHandler = (e) => {
+  const optionClickHandler = () => {
     setmoreOption([...moreOption, { id: uuidv4() }]);
-    setacademicData({
-      ...academicData,
-      [moreOption.length + 1]: {
-        institution: "",
-        qualification: "",
-        start: "",
-        end: "",
-        gpa: "",
-      },
-    });
   };
   const handleRemoveOption = (id) => {
     setmoreOption(moreOption.filter((option) => option.id !== id));
@@ -23,16 +13,16 @@ const Academic = ({ fetchData }) => {
   const handleChange = (event) => {
     setacademicData({
       ...academicData,
-      [moreOption.length]: {
-        ...academicData[moreOption.length],
+      [event.target.id]: {
+        ...academicData[event.target.id],
         [event.target.name]: event.target.value,
       },
     });
     let data = [
       {
         ...academicData,
-        [moreOption.length]: {
-          ...academicData[moreOption.length],
+        [event.target.id]: {
+          ...academicData[event.target.id],
           [event.target.name]: event.target.value,
         },
       },
@@ -127,7 +117,7 @@ const Academic = ({ fetchData }) => {
         </>
       </div>
       <div className="row p-5 bg-white">
-        {moreOption.map((option) => {
+        {moreOption.map((option, index) => {
           return (
             <>
               <div className="col-12 mb-5 mt-5">
@@ -154,7 +144,7 @@ const Academic = ({ fetchData }) => {
                     type="text"
                     name="institution"
                     className="form-control my-1"
-                    id={option.id}
+                    id={index + 1}
                     onChange={handleChange}
                     placeholder=""
                   />
@@ -168,7 +158,7 @@ const Academic = ({ fetchData }) => {
                   <input
                     type="text"
                     className="form-control my-1"
-                    id={option.id}
+                    id={index + 1}
                     name="qualification"
                     onChange={handleChange}
                     placeholder=""
@@ -183,7 +173,7 @@ const Academic = ({ fetchData }) => {
                   <input
                     type="date"
                     className="form-control my-1"
-                    id={option.id}
+                    id={index + 1}
                     name="start"
                     onChange={handleChange}
                     placeholder=""
@@ -198,7 +188,7 @@ const Academic = ({ fetchData }) => {
                   <input
                     type="date"
                     className="form-control"
-                    id={option.id}
+                    id={index + 1}
                     onChange={handleChange}
                     name="end"
                     placeholder=""
@@ -213,7 +203,7 @@ const Academic = ({ fetchData }) => {
                   <input
                     type="number"
                     className="form-control my-1"
-                    id={option.id}
+                    id={index + 1}
                     name="gpa"
                     onChange={handleChange}
                     placeholder=""

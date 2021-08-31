@@ -3,7 +3,7 @@ import React from "react";
 const Social = () => {
   return (
     <div className="row p-5 bg-white rounded">
-      <div className="col-6">
+      <div className="col-lg-6 col-md-6 col-sm-12 col-12">
         <div className="form-group">
           <label className="my-1 py-3 w-100" for="facebook">
             facebook
@@ -16,7 +16,7 @@ const Social = () => {
           />
         </div>
       </div>
-      <div className="col-6">
+      <div className="col-lg-6 col-md-6 col-sm-12 col-12">
         <div className="form-group">
           <label className="my-1 py-3 w-100" for="github">
             github
@@ -29,7 +29,7 @@ const Social = () => {
           />
         </div>
       </div>
-      <div className="col-6">
+      <div className="col-lg-6 col-md-6 col-sm-12 col-12">
         <div className="form-group">
           <label className="my-1 py-3 w-100" for="Twitter">
             Twitter
@@ -42,7 +42,7 @@ const Social = () => {
           />
         </div>
       </div>
-      <div className="col-6">
+      <div className="col-lg-6 col-md-6 col-sm-12 col-12">
         <div className="form-group">
           <label className="my-1 py-3 w-100" for="Pinterest">
             Pinterest
@@ -55,7 +55,7 @@ const Social = () => {
           />
         </div>
       </div>
-      <div className="col-6">
+      <div className="col-lg-6 col-md-6 col-sm-12 col-12">
         <div className="form-group">
           <label className="my-1 py-3 w-100" for="Linkedin">
             Linkedin
@@ -68,7 +68,7 @@ const Social = () => {
           />
         </div>
       </div>
-      <div className="col-6">
+      <div className="col-lg-6 col-md-6 col-sm-12 col-12">
         <div className="form-group">
           <label className="my-1 py-3 w-100" for="Website">
             Website

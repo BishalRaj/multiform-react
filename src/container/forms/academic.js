@@ -34,87 +34,86 @@ const Academic = ({ fetchData }) => {
     <>
       <div className="row p-5 bg-white">
         <div className="col-12 mb-5">
-          <button className="btn btn-primary" onClick={optionClickHandler}>
+          <button className="btn btn-success" onClick={optionClickHandler}>
             Add new Qualification
           </button>
         </div>
-        <>
-          <div className="col-12">
-            <div className="form-group">
-              <label className="mb-1 pb-3" for="institution">
-                Name of Institution
-              </label>
-              <input
-                type="text"
-                className="form-control my-1"
-                id="0"
-                name="institution"
-                onChange={handleChange}
-                placeholder=""
-              />
-            </div>
+
+        <div className="col-12">
+          <div className="form-group">
+            <label className="mb-1 pb-3" for="institution">
+              Name of Institution
+            </label>
+            <input
+              type="text"
+              className="form-control my-1"
+              id="0"
+              name="institution"
+              onChange={handleChange}
+              placeholder=""
+            />
           </div>
-          <div className="col-12">
-            <div className="form-group">
-              <label className="my-1 py-3 w-100" for="qualification">
-                Name of Qualification
-              </label>
-              <input
-                type="text"
-                className="form-control my-1"
-                id="0"
-                name="qualification"
-                onChange={handleChange}
-                placeholder=""
-              />
-            </div>
+        </div>
+        <div className="col-12">
+          <div className="form-group">
+            <label className="my-1 py-3 w-100" for="qualification">
+              Name of Qualification
+            </label>
+            <input
+              type="text"
+              className="form-control my-1"
+              id="0"
+              name="qualification"
+              onChange={handleChange}
+              placeholder=""
+            />
           </div>
-          <div className="col-4">
-            <div className="form-group">
-              <label className="my-1 py-3 w-100" for="start">
-                Start year
-              </label>
-              <input
-                type="date"
-                className="form-control my-1"
-                id="0"
-                name="start"
-                onChange={handleChange}
-                placeholder=""
-              />
-            </div>
+        </div>
+        <div className="col-lg-4 col-md-4 col-sm-12 col-12">
+          <div className="form-group">
+            <label className="my-1 py-3 w-100" for="start">
+              Start year
+            </label>
+            <input
+              type="date"
+              className="form-control my-1"
+              id="0"
+              name="start"
+              onChange={handleChange}
+              placeholder=""
+            />
           </div>
-          <div className="col-4">
-            <div className="form-group">
-              <label className="my-1 py-3 w-100" for="end">
-                End year
-              </label>
-              <input
-                type="date"
-                className="form-control"
-                id="0"
-                name="end"
-                onChange={handleChange}
-                placeholder=""
-              />
-            </div>
+        </div>
+        <div className="col-lg-4 col-md-4 col-sm-12 col-12">
+          <div className="form-group">
+            <label className="my-1 py-3 w-100" for="end">
+              End year
+            </label>
+            <input
+              type="date"
+              className="form-control"
+              id="0"
+              name="end"
+              onChange={handleChange}
+              placeholder=""
+            />
           </div>
-          <div className="col-4">
-            <div className="form-group">
-              <label className="my-1 py-3 w-100" for="start">
-                GPA/Percentage
-              </label>
-              <input
-                type="number"
-                className="form-control my-1"
-                id="0"
-                name="gpa"
-                onChange={handleChange}
-                placeholder=""
-              />
-            </div>
+        </div>
+        <div className="col-lg-4 col-md-4 col-sm-12 col-12">
+          <div className="form-group">
+            <label className="my-1 py-3 w-100" for="start">
+              GPA/Percentage
+            </label>
+            <input
+              type="number"
+              className="form-control my-1"
+              id="0"
+              name="gpa"
+              onChange={handleChange}
+              placeholder=""
+            />
           </div>
-        </>
+        </div>
       </div>
       <div className="row p-5 bg-white">
         {moreOption.map((option, index) => {
@@ -122,14 +121,14 @@ const Academic = ({ fetchData }) => {
             <>
               <div className="col-12 mb-5 mt-5">
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-success"
                   id={option.id}
                   onClick={optionClickHandler}
                 >
                   Add new Qualification
                 </button>
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-danger float-end"
                   onClick={() => handleRemoveOption(option.id)}
                 >
                   Remove Field
@@ -165,7 +164,7 @@ const Academic = ({ fetchData }) => {
                   />
                 </div>
               </div>
-              <div className="col-4">
+              <div className="col-lg-4 col-md-4 col-sm-12 col-12">
                 <div className="form-group">
                   <label className="my-1 py-3 w-100" for="start">
                     Start year
@@ -180,7 +179,7 @@ const Academic = ({ fetchData }) => {
                   />
                 </div>
               </div>
-              <div className="col-4">
+              <div className="col-lg-4 col-md-4 col-sm-12 col-12">
                 <div className="form-group">
                   <label className="my-1 py-3 w-100" for="end">
                     End year
@@ -195,7 +194,7 @@ const Academic = ({ fetchData }) => {
                   />
                 </div>
               </div>
-              <div className="col-4">
+              <div className="col-lg-4 col-md-4 col-sm-12 col-12">
                 <div className="form-group">
                   <label className="my-1 py-3 w-100" for="start">
                     GPA/Percentage

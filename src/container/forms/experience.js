@@ -7,15 +7,6 @@ const Experience = ({ fetchData }) => {
 
   const optionClickHandler = () => {
     setmoreOption([...moreOption, { id: uuidv4() }]);
-    setexperienceData({
-      ...experienceData,
-      [moreOption.length + 1]: {
-        institution: "",
-        duties: "",
-        start: "",
-        end: "",
-      },
-    });
   };
   const handleRemoveOption = (id) => {
     setmoreOption(moreOption.filter((option) => option.id !== id));
@@ -24,16 +15,16 @@ const Experience = ({ fetchData }) => {
   const handleChange = (event) => {
     setexperienceData({
       ...experienceData,
-      [moreOption.length]: {
-        ...experienceData[moreOption.length],
+      [event.target.id]: {
+        ...experienceData[event.target.id],
         [event.target.name]: event.target.value,
       },
     });
     let data = [
       {
         ...experienceData,
-        [moreOption.length]: {
-          ...experienceData[moreOption.length],
+        [event.target.id]: {
+          ...experienceData[event.target.id],
           [event.target.name]: event.target.value,
         },
       },
@@ -43,83 +34,82 @@ const Experience = ({ fetchData }) => {
 
   return (
     <div className="row p-5 bg-white rounded">
-      <div className="col-12">
-        <button className="btn btn-primary" onClick={optionClickHandler}>
+      <div className="col-12 mb-5">
+        <button className="btn btn-success" onClick={optionClickHandler}>
           Add new Experience
         </button>
       </div>
-      <>
-        <div className="col-12">
-          <div className="form-group">
-            <label className="mb-1 pb-3" for="institution">
-              Name of Institution
-            </label>
-            <input
-              type="text"
-              className="form-control my-1"
-              id="institution"
-              name="institution"
-              placeholder=""
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-        <div className="col-12">
-          <div className="form-group">
-            <label className="my-1 py-3 w-100" for="duties">
-              Duties/Roles
-            </label>
-            <input
-              type="text"
-              className="form-control my-1"
-              id="duties"
-              name="duties"
-              placeholder=""
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-        <div className="col-6">
-          <div className="form-group">
-            <label className="my-1 py-3 w-100" for="start">
-              Start year
-            </label>
-            <input
-              type="date"
-              className="form-control my-1"
-              id="start"
-              name="start"
-              placeholder=""
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-        <div className="col-6">
-          <div className="form-group">
-            <label className="my-1 py-3 w-100" for="end">
-              End year
-            </label>
-            <input
-              type="date"
-              className="form-control"
-              id="end"
-              name="end"
-              placeholder=""
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-      </>
 
-      {moreOption.map((option) => {
+      <div className="col-12">
+        <div className="form-group">
+          <label className="mb-1 pb-3" for="institution">
+            Name of Institution
+          </label>
+          <input
+            type="text"
+            className="form-control my-1"
+            id="0"
+            name="institution"
+            placeholder=""
+            onChange={handleChange}
+          />
+        </div>
+      </div>
+      <div className="col-12">
+        <div className="form-group">
+          <label className="my-1 py-3 w-100" for="duties">
+            Duties/Roles
+          </label>
+          <input
+            type="text"
+            className="form-control my-1"
+            id="0"
+            name="duties"
+            placeholder=""
+            onChange={handleChange}
+          />
+        </div>
+      </div>
+      <div className="col-lg-6 col-md-6 col-sm-12 col-12">
+        <div className="form-group">
+          <label className="my-1 py-3 w-100" for="start">
+            Start year
+          </label>
+          <input
+            type="date"
+            className="form-control my-1"
+            id="0"
+            name="start"
+            placeholder=""
+            onChange={handleChange}
+          />
+        </div>
+      </div>
+      <div className="col-lg-6 col-md-6 col-sm-12 col-12">
+        <div className="form-group">
+          <label className="my-1 py-3 w-100" for="end">
+            End year
+          </label>
+          <input
+            type="date"
+            className="form-control"
+            id="0"
+            name="end"
+            placeholder=""
+            onChange={handleChange}
+          />
+        </div>
+      </div>
+
+      {moreOption.map((option, index) => {
         return (
           <>
             <div className="col-12 mb-5 mt-5">
-              <button className="btn btn-primary" onClick={optionClickHandler}>
+              <button className="btn btn-success" onClick={optionClickHandler}>
                 Add new Experience
               </button>
               <button
-                className="btn btn-primary"
+                className="btn btn-danger float-end"
                 onClick={() => handleRemoveOption(option.id)}
               >
                 Remove Field
@@ -134,7 +124,7 @@ const Experience = ({ fetchData }) => {
                 <input
                   type="text"
                   className="form-control my-1"
-                  id="institution"
+                  id={index + 1}
                   name="institution"
                   placeholder=""
                   onChange={handleChange}
@@ -149,14 +139,14 @@ const Experience = ({ fetchData }) => {
                 <input
                   type="text"
                   className="form-control my-1"
-                  id="duties"
+                  id={index + 1}
                   name="duties"
                   placeholder=""
                   onChange={handleChange}
                 />
               </div>
             </div>
-            <div className="col-6">
+            <div className="col-lg-6 col-md-6 col-sm-12 col-12">
               <div className="form-group">
                 <label className="my-1 py-3 w-100" for="start">
                   Start year
@@ -164,14 +154,14 @@ const Experience = ({ fetchData }) => {
                 <input
                   type="date"
                   className="form-control my-1"
-                  id="start"
+                  id={index + 1}
                   name="start"
                   placeholder=""
                   onChange={handleChange}
                 />
               </div>
             </div>
-            <div className="col-6">
+            <div className="col-lg-6 col-md-6 col-sm-12 col-12">
               <div className="form-group">
                 <label className="my-1 py-3 w-100" for="end">
                   End year
@@ -179,7 +169,7 @@ const Experience = ({ fetchData }) => {
                 <input
                   type="date"
                   className="form-control"
-                  id="end"
+                  id={index + 1}
                   name="end"
                   placeholder=""
                   onChange={handleChange}

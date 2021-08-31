@@ -3,7 +3,7 @@ import "../css/progressbar.css";
 
 const Progressbar = ({ step }) => {
   const [title, settitle] = useState([
-    { title: "Personal Information", logo: <i class="far fa-user fa-2x "></i> },
+    { title: "Personal", logo: <i class="far fa-user fa-2x "></i> },
     { title: "Academic", logo: <i class="fas fa-user-graduate fa-2x"></i> },
     { title: "Experience", logo: <i class="fas fa-briefcase fa-2x"></i> },
     { title: "Skills", logo: <i class="fas fa-tools fa-2x"></i> },

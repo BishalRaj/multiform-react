@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Personal = ({ handleChange, data }) => {
+const Personal = ({ handleChange, data, isValid }) => {
+  const [showError, setshowError] = useState(!isValid);
+  console.log("====================================");
+  console.log(data);
+  console.log("====================================");
   return (
     <>
       <div className="row p-5 bg-white">
@@ -19,6 +23,10 @@ const Personal = ({ handleChange, data }) => {
               onChange={handleChange}
               required
             />
+
+            <small className="text-danger">
+              {!data.name && showError && "Name is required"}
+            </small>
           </div>
         </div>
         <div className="col-12">
@@ -27,7 +35,7 @@ const Personal = ({ handleChange, data }) => {
               Email
             </label>
             <input
-              type="text"
+              type="email"
               className="form-control my-1"
               id="email"
               name="email"
@@ -36,10 +44,13 @@ const Personal = ({ handleChange, data }) => {
               placeholder=""
               required
             />
-            <small>Hint: Enter your personal email address.</small>
+
+            <small className="text-danger">
+              {!data.email && showError && "Email is required"}
+            </small>
           </div>
         </div>
-        <div className="col-6">
+        <div className="col-lg-6 col-md-6 col-sm-12 col-12">
           <div className="form-group my-2">
             <label className="" for="password">
               Password
@@ -54,9 +65,12 @@ const Personal = ({ handleChange, data }) => {
               placeholder=""
               required
             />
+            <small className="text-danger">
+              {!data.email && showError && "Enter a password."}
+            </small>
           </div>
         </div>
-        <div className="col-6">
+        <div className="col-lg-6 col-md-6 col-sm-12 col-12">
           <div className="form-group my-2">
             <label className="" for="confirm-password">
               Confirm Password
@@ -71,10 +85,13 @@ const Personal = ({ handleChange, data }) => {
               placeholder=""
               required
             />
+            <small className="text-danger">
+              {!data.email && showError && "Enter a password."}
+            </small>
           </div>
         </div>
 
-        <div className="col-6">
+        <div className="col-lg-6 col-md-6 col-sm-12 col-12">
           <div className="form-group my-2">
             <label className="" for="address">
               Address
@@ -89,10 +106,13 @@ const Personal = ({ handleChange, data }) => {
               placeholder=""
               required
             />
+            <small className="text-danger">
+              {!data.email && showError && "Enter your address."}
+            </small>
           </div>
         </div>
 
-        <div className="col-6">
+        <div className="col-lg-6 col-md-6 col-sm-12 col-12">
           <div className="form-group my-2">
             <label className="" for="phone">
               Phone Number
@@ -107,10 +127,13 @@ const Personal = ({ handleChange, data }) => {
               placeholder=""
               required
             />
+            <small className="text-danger">
+              {!data.email && showError && "Enter your contact number."}
+            </small>
           </div>
         </div>
 
-        <div className="col-6">
+        <div className="col-lg-6 col-md-6 col-sm-12 col-12">
           <div className="form-group my-2">
             <label className="" for="role">
               Role
@@ -125,10 +148,13 @@ const Personal = ({ handleChange, data }) => {
               placeholder=""
               required
             />
+            <small className="text-danger">
+              {!data.email && showError && "Enter role to apply."}
+            </small>
           </div>
         </div>
 
-        <div className="col-6">
+        <div className="col-lg-6 col-md-6 col-sm-12 col-12">
           <div className="form-group my-2">
             <label className="" for="experience">
               Experience
@@ -142,7 +168,10 @@ const Personal = ({ handleChange, data }) => {
               onChange={handleChange}
               placeholder=""
               required
-            />
+            />{" "}
+            <small className="text-danger">
+              {!data.email && showError && "Enter your experience."}
+            </small>
           </div>
         </div>
 
@@ -158,7 +187,7 @@ const Personal = ({ handleChange, data }) => {
               placeholder=""
               required
             />
-            <small>Hint: Upload your avatar picture</small>
+            <small> Upload your avatar picture</small>
           </div>
         </div>
         <div className="col-12">
@@ -173,7 +202,7 @@ const Personal = ({ handleChange, data }) => {
               placeholder=""
               required
             />
-            <small>Hint: Upload your resume</small>
+            <small> Upload your resume</small>
           </div>
         </div>
       </div>

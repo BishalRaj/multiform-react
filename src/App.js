@@ -23,6 +23,7 @@ function App() {
   const [academic, setacademic] = useState([]);
   const [experience, setexperience] = useState([]);
   const [skills, setskills] = useState([]);
+  const [isValid, setisValid] = useState(true);
 
   const decreaseStep = () => {
     if (step > 1 && step <= 6) {
@@ -31,7 +32,7 @@ function App() {
   };
 
   const validate = () => {
-    let isValid = true;
+    // let isValid = true;
     let {
       name,
       email,
@@ -55,16 +56,28 @@ function App() {
           role &&
           experience
         ) {
-          isValid = true;
+          console.log("====================================");
+          console.log(true);
+          console.log("====================================");
+          setisValid(true);
+
+          setstep(step + 1);
+        } else {
+          console.log("====================================");
+          console.log(false);
+          console.log("====================================");
+          setisValid(false);
         }
         break;
       case 2:
-        if (academic && academic != null && academic != undefined) {
-          isValid = true;
+        if (academic || academic.length || academic.length > 0) {
+          // isValid = true;
+
+          setstep(step + 1);
         }
 
         break;
-      case 31:
+      case 3:
         break;
       case 4:
         break;
@@ -72,9 +85,9 @@ function App() {
         break;
     }
 
-    if (step > 0 && step < 5 && isValid) {
-      setstep(step + 1);
-    } else return;
+    // if (step > 0 && step < 5 && isValid) {
+    //   setstep(step + 1);
+    // } else return;
   };
 
   const handleChange = (event) => {
@@ -102,9 +115,7 @@ function App() {
         break;
     }
   };
-  console.log("====================================");
-  console.log(academic);
-  console.log("====================================");
+
   return (
     <>
       <section className="container">
@@ -113,9 +124,12 @@ function App() {
       <section className="container mb-5">
         <div className="px-5 py-3 shadow-lg rounded-3">
           {/*  */}
-
           {step === 1 && (
-            <Personal handleChange={handleChange} data={personal} />
+            <Personal
+              handleChange={handleChange}
+              data={personal}
+              isValid={isValid}
+            />
           )}
           {step === 2 && <Academic fetchData={fetchData} />}
           {step === 3 && <Experience fetchData={fetchData} />}
@@ -126,12 +140,21 @@ function App() {
           <div className="row border-top px-5 py-3 mt-3">
             <div className="col-6">Step {step} of 5</div>
             <div className="col-6">
-              <button
-                className="btn btn-primary float-end mx-2"
-                onClick={validate}
-              >
-                Next
-              </button>
+              {step === 5 ? (
+                <button
+                  className="btn btn-primary float-end mx-2"
+                  onClick={validate}
+                >
+                  Submit
+                </button>
+              ) : (
+                <button
+                  className="btn btn-primary float-end mx-2"
+                  onClick={validate}
+                >
+                  Next
+                </button>
+              )}
               <button
                 className="btn btn-outline-dark float-end mx-2"
                 onClick={decreaseStep}

@@ -36,12 +36,12 @@ const Skill = ({ fetchData }) => {
     <>
       <div className="row p-5 bg-white rounded">
         <div className="col-12">
-          <button className="btn btn-primary" onClick={optionClickHandler}>
+          <button className="btn btn-success" onClick={optionClickHandler}>
             Add new expertise
           </button>
         </div>
 
-        <div className="col-4">
+        <div className="col-lg-4 col-md-4 col-sm-12  col-12">
           <div className="form-group">
             <label className="my-1 py-3 w-100" for="expertise">
               Expertise
@@ -56,7 +56,7 @@ const Skill = ({ fetchData }) => {
             />
           </div>
         </div>
-        <div className="col-4">
+        <div className="col-lg-4 col-md-4 col-sm-12  col-12">
           <div className="form-group">
             <label className="my-1 py-3 w-100" for="Percent">
               Percent
@@ -77,18 +77,18 @@ const Skill = ({ fetchData }) => {
         return (
           <div className="row p-5 bg-white rounded">
             <div className="col-12">
-              <button className="btn btn-primary" onClick={optionClickHandler}>
+              <button className="btn btn-success" onClick={optionClickHandler}>
                 Add new expertise
               </button>
               <button
-                className="btn btn-primary"
+                className="btn btn-danger float-end"
                 onClick={() => handleRemoveOption(option.id)}
               >
                 Remove Field
               </button>
             </div>
 
-            <div className="col-4">
+            <div className="col-lg-4 col-md-4 col-sm-12  col-12">
               <div className="form-group">
                 <label className="my-1 py-3 w-100" for="expertise">
                   Expertise
@@ -103,7 +103,7 @@ const Skill = ({ fetchData }) => {
                 />
               </div>
             </div>
-            <div className="col-4">
+            <div className="col-lg-4 col-md-4 col-sm-12  col-12">
               <div className="form-group">
                 <label className="my-1 py-3 w-100" for="Percent">
                   Percent

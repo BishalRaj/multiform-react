@@ -38,5 +38,5 @@
   left: 60%;
   top: -75px;
   border: 1px solid #d8d8d8;
-  z-index: 0 !important;
+  z-index: -1 !important;
 }
